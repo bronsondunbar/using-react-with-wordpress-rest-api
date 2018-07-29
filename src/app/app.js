@@ -123,9 +123,9 @@ class App extends Component {
 
 	  				<div className="card">
           		<div className="card-body">
-	  						<p>This example calls the demo WordPress REST API using React and React Redux to display a list of posts</p>
+	  						<p>This example calls the demo WordPress REST API using React and React Redux to display a list of posts.</p>
 
-	  						<p>You can then click on any of the posts to see the content</p>
+	  						<p>You can then click on 'View post' to see the content of the post.</p>
 	  					</div>
 	  				</div>
 	  			</header>
