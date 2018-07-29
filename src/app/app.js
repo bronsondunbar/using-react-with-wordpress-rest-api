@@ -5,6 +5,9 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { requestData, requestDetails } from './actions/index'
 
+import TableContainer from './containers/tableContainer'
+import PostContainer from './containers/postContainer'
+
 import SearchComponent from './components/searchComponent'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -45,8 +48,10 @@ class App extends Component {
 
     let searchTerm = ''
 
+    console.log('Called')
+
     this.setState((state, props) => {
-      return { searchTerm, searchTerm }
+      return { searchTerm }
     })
   }
 
@@ -65,38 +70,9 @@ class App extends Component {
     let searchSuggestions = this.state.searchSuggestions
 		let searchTerm = this.state.searchTerm
 
-    let updatedSearchSuggestions = null
+		let updatedSearchSuggestions = null
 
-    {(searchTerm != '' && searchSuggestions.length > 0)
-	    ? updatedSearchSuggestions = searchSuggestions.map((updatedSearchSuggestions, index) => {
-    			return (
-    				<tr
-							key={index}>
-							<td>
-								{updatedSearchSuggestions.title.rendered}
-							</td>
-							<td>
-								{updatedSearchSuggestions.slug}
-							</td>
-							<td>
-								{updatedSearchSuggestions.date}
-							</td>
-							<td>
-								<a
-									href="#"
-									className="btn btn-default"
-									onClick={() => dispatch(requestDetails(updatedSearchSuggestions.id))}>View post</a>
-							</td>
-						</tr>)})
-	   	: null}
-
-	  {(searchTerm != '' && searchSuggestions.length == 0)
-	    ? updatedSearchSuggestions	=	<tr>
-																			<td colspan="4">No result(s)</td>
-																		</tr>
-	   	: null}
-
-   	{(detailsData != '' && searchSuggestions.length > 0)
+		{(detailsData != '' && searchSuggestions.length > 0)
 	    ? updatedSearchSuggestions = searchSuggestions.map((updatedSearchSuggestions, index) => {
     			return (
     				 <a
@@ -141,23 +117,6 @@ class App extends Component {
 				            clearSearch={this.clearSearch.bind(this)}
 				            placeHolder="Search for post..." />
 
-			            {(detailsData == '' && updatedSearchSuggestions != null)
-										? <table className="table-borderless table-striped">
-											  <thead>
-											    <tr>
-											      <th scope="col">Title</th>
-											      <th scope="col">Slug</th>
-											      <th scope="col">Date</th>
-											      <th scope="col"></th>
-											    </tr>
-											  </thead>
-											  <tbody>
-											  	{updatedSearchSuggestions}
-											  </tbody>
-											</table>
-										: null
-									}
-
 									{(detailsData != '' && updatedSearchSuggestions != null && searchTerm != '')
 										? <Fragment>
 												<div className="dropdown-menu">
@@ -168,79 +127,36 @@ class App extends Component {
 									}
 								</div>
 
-									{(detailsData == '' && updatedSearchSuggestions == null)
-										? <Fragment>
-												{isFetchingAllData &&
-													<div>
-											      <i className="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
-											      <p>Loading posts...</p>
-										      </div>
-												}
+								{isFetchingAllData &&
+									<div className="loader">
+										<div>
+								      <i className="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+								      <p>Loading posts...</p>
+							      </div>
+						      </div>
+								}
 
-												{!isFetchingAllData &&
-													<table className="table-borderless table-striped">
-													  <thead>
-													    <tr>
-													      <th scope="col">Title</th>
-													      <th scope="col">Slug</th>
-													      <th scope="col">Date</th>
-													      <th scope="col"></th>
-													    </tr>
-													  </thead>
-													  <tbody>
-															{allData.map((post, index) =>
-																<tr
-																	key={index}>
-																	<td>
-																		{post.title.rendered}
-																	</td>
-																	<td>
-																		{post.slug}
-																	</td>
-																	<td>
-																		{post.date}
-																	</td>
-																	<td>
-																		<a
-																			href="#"
-																			className="btn btn-default"
-																			onClick={() => dispatch(requestDetails(post.id))}>View post</a>
-																	</td>
-																</tr>
-															)}
-														</tbody>
-													</table>}
-											</Fragment>
-										: null}
+								{isFetchingDataDetails &&
+				    			<div className="loader">
+				    				<div>
+								      <i className="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+								      <p>Loading post...</p>
+								    </div>
+							    </div>
+				    		}
 
-									{detailsData != ''
-										? <Fragment>
-								    		{isFetchingDataDetails &&
-								    			<div>
-											      <i className="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
-											      <p>Loading post...</p>
-											    </div>
-								    		}
-								    		{!isFetchingDataDetails &&
-								    			<Fragment>
-									    			<a
-								    					href="#"
-								    					className="btn btn-default"
-								    					onClick={() => dispatch(requestDetails())}>Back</a>
-									    			<div className="grid">
-									    				<div className="item data-details">
-									    					<h1>{detailsData.title.rendered}</h1>
-									    					<div dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(detailsData.content.rendered)}}></div>
-									    				</div>
-										    		</div>
-										    		<a
-								    					href="#"
-								    					className="btn btn-default"
-								    					onClick={() => dispatch(requestDetails())}>Back</a>
-									    		</Fragment>
-								    		}
-							    		</Fragment>
-							    	: null}
+								<TableContainer
+									searchTerm={searchTerm}
+									searchSuggestions={searchSuggestions}
+									updatedSearchSuggestions={updatedSearchSuggestions}
+									getDetails={this.getDetails.bind(this)}
+								/>
+
+								<PostContainer
+									searchTerm={searchTerm}
+									searchSuggestions={searchSuggestions}
+									updatedSearchSuggestions={updatedSearchSuggestions}
+								/>
 							</div>
 						</div>
 					</div>

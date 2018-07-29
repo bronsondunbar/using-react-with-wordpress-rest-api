@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SearchComponent = ({ searchTerm, userSearch, clearSearch, test, placeHolder }) => {
+const SearchComponent = ({ searchTerm, userSearch, clearSearch, placeHolder }) => {
   return (
     <div className="input-group mb-3">
       <div className="input-group-prepend">
