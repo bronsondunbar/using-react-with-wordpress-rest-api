@@ -1,0 +1,50 @@
+
+/* Buttons */
+
+.btn {
+
+	min-width: 160px;
+	margin: 15px;
+
+	i, svg {
+
+		margin: 0 5px;
+
+	}
+
+}
+
+.btn-default {
+	
+	border: none;
+	background: $darkBlue;
+	color: $white;
+	transition: $fastTransition;
+
+	&:hover, &:focus {
+
+		background: darken($darkBlue, 10%);
+		box-shadow: none;
+		color: $white;
+
+	}
+
+}
+
+.btn-primary {
+	
+	border: none;
+	background: $lightBlue;
+	color: $white;
+	transition: $fastTransition;
+
+	&:hover, &:focus {
+
+		background: darken($lightBlue, 10%);
+		color: $white;
+		box-shadow: none;
+
+	}
+
+}
+

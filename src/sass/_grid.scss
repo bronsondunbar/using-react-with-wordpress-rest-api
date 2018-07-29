@@ -1,0 +1,144 @@
+
+/* Grid */
+
+.grid {
+
+  display: flex;
+  flex-wrap: wrap;
+  margin: 15px 0;
+
+  .item {
+
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 150px;
+    min-width: 15%;
+    margin: 15px 0;
+    padding: 0;
+    transition: all 0.3s;
+    color: $black;
+
+    h1, h2, h3, h4, p, blockquote {
+
+      text-align: center;
+      width: 100%;
+
+    }
+
+    > div {
+
+      height: 100%;
+      width: 100%;
+
+    }
+
+    .grid {
+
+      width: 100%;
+      height: auto;
+      margin: 15px 0 0 0;
+
+      .item {
+
+        background: rgba($white, 0.8);
+        color: $black;
+
+        h1, h2, h3, h4, h5 {
+
+          color: $black;
+
+        }
+
+      }
+
+      .data-category {
+
+        cursor: pointer;
+
+        &:hover, &:focus {
+
+          background: $lightBlue;
+          
+          h4, svg, i {
+
+            display: none;
+
+          }
+
+          span {
+
+            color: $white;
+            display: block;
+
+          }
+
+        }
+
+        svg, i {
+
+          color: $lightBlue;
+
+        }
+
+        p {
+
+          margin: 0;
+
+        }
+
+        span {
+
+          display: none;
+
+        }
+
+      }
+
+      .data-details {
+
+        border: none;
+        border-radius: 5px;
+        margin: 15px 0;
+        padding: 15px;
+
+      }
+
+      .data-details-meta {
+
+        background: none;
+        border: none;
+        min-height: 1px;
+        margin: 15px 15px 0 15px;
+
+      }
+
+      .data-category-no-results {
+
+        &:hover, &:focus {
+
+          h4, svg, i {
+
+            display: black;
+            color: $white;
+
+          }
+
+        }
+
+      }
+
+    }
+
+    @media (max-width: $tabletLandscape) {
+
+      margin: 15px 0 0 0;
+      min-width: 90%;
+
+    }
+
+  }
+
+}

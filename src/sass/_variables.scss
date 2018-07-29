@@ -1,0 +1,33 @@
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,700,700i');
+
+/* Colors */
+
+$black: #262626;
+$white: #ffffff;
+$gray: #444444;
+$lightGray: #e5e5e5;
+
+$lightBlue: #06A9E1;
+$darkBlue: #0D3758;
+$darkerBlue: #000333;
+
+$titleFontFamily: "Montserrat", sans-serif;
+$titleFontWeight: 400;
+$titleFontColour: $lightBlue;
+	
+$bodyFontFamily: "Arial", sans-serif;
+$bodyFontWeight: 400;
+
+$fastTransition: all 0.3s;
+
+$grayGradient: linear-gradient(135deg, #F1F1F2 0%, #ffffff 100%);
+
+/* Screen sizes */
+
+$desktop: 1920px;
+$laptop: 1440px;
+$tabletLandscape: 1024px;
+$tabletPortrait: 768px;
+$mobileLargeLandscape: 736px;
+$mobileLargePortrait: 425px;
