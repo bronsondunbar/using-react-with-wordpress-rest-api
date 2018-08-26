@@ -9,11 +9,24 @@
 
 body {
 
-	background: $grayGradient;
+	background: $lightGray;
 	min-height: 100vh;
 	margin: 0;
 	padding: 60px 0 0 0;
 	overflow-x: hidden;
+
+}
+
+a {
+
+	color: $green;
+	transition: $fastTransition;
+
+	&:hover, &:focus {
+
+		color: darken($green, 40%);
+
+	}
 
 }
 
@@ -31,8 +44,8 @@ p {
 
 .input-group-text {
 
-	background: $lightBlue;
-	border: 1px solid $lightBlue;
+	background: $green;
+	border: none;
 	color: $white;
 
 }
@@ -41,6 +54,6 @@ blockquote {
 
 	font-size: 2em;
 	font-style: italic;
-	color: $lightBlue;
+	color: $green;
 
 }

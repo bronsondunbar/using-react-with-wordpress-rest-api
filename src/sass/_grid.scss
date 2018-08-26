@@ -5,7 +5,6 @@
 
   display: flex;
   flex-wrap: wrap;
-  margin: 15px 0;
 
   .item {
 
@@ -13,13 +12,13 @@
     flex: 1;
     justify-content: center;
     align-items: center;
+    text-align: center;
     flex-wrap: wrap;
     min-height: 150px;
     min-width: 15%;
-    margin: 15px 0;
     padding: 0;
     transition: all 0.3s;
-    color: $black;
+    color: $gray;
 
     h1, h2, h3, h4, p, blockquote {
 
@@ -39,16 +38,15 @@
 
       width: 100%;
       height: auto;
-      margin: 15px 0 0 0;
 
       .item {
 
         background: rgba($white, 0.8);
-        color: $black;
+        color: $gray;
 
         h1, h2, h3, h4, h5 {
 
-          color: $black;
+          color: $gray;
 
         }
 
@@ -60,7 +58,7 @@
 
         &:hover, &:focus {
 
-          background: $lightBlue;
+          background: $green;
           
           h4, svg, i {
 
@@ -79,7 +77,7 @@
 
         svg, i {
 
-          color: $lightBlue;
+          color: $green;
 
         }
 
@@ -103,6 +101,13 @@
         border-radius: 5px;
         margin: 15px 0;
         padding: 15px;
+        text-align: left;
+
+        h1, h2, h3, h4, h5, h6, p {
+
+          text-align: left;
+
+        }
 
       }
 
@@ -121,7 +126,7 @@
 
           h4, svg, i {
 
-            display: black;
+            display: block;
             color: $white;
 
           }
@@ -134,7 +139,6 @@
 
     @media (max-width: $tabletLandscape) {
 
-      margin: 15px 0 0 0;
       min-width: 90%;
 
     }

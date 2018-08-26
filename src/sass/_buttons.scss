@@ -3,48 +3,47 @@
 
 .btn {
 
-	min-width: 160px;
-	margin: 15px;
+	border-radius: 0;
+	margin: 5px;
 
-	i, svg {
+}
 
-		margin: 0 5px;
+.btn-center {
 
-	}
+	text-align: center;
 
 }
 
 .btn-default {
-	
-	border: none;
-	background: $darkBlue;
+
+	background: $green;
 	color: $white;
+	border: 1px solid $green;
 	transition: $fastTransition;
 
 	&:hover, &:focus {
 
-		background: darken($darkBlue, 10%);
-		box-shadow: none;
-		color: $white;
+		background: $white;
+		color: $green;
+		border: 1px solid $green;
+		box-shadow: $lightGreenShadow;
 
 	}
 
 }
 
 .btn-primary {
-	
-	border: none;
-	background: $lightBlue;
+
+	background: $gray;
 	color: $white;
-	transition: $fastTransition;
+	border: 1px solid $gray;
 
 	&:hover, &:focus {
 
-		background: darken($lightBlue, 10%);
-		color: $white;
-		box-shadow: none;
+		background: $white;
+		color: $gray;
+		border: 1px solid $gray;
 
 	}
 
 }
-
