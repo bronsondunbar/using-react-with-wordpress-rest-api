@@ -12,7 +12,10 @@ const receiveFetchData = (json) => {
 export const requestData = () => {
 	return dispatch => {
 		dispatch(requestFetchData())
-		fetch ('https://demo.wp-api.org/wp-json/wp/v2/posts')
+		const request = new Request('https://demo.wp-api.org/wp-json/wp/v2/posts', {
+			method: 'GET'
+		})
+		fetch (request)
 		.then ((response) => response.json())
 		.then(json => dispatch(receiveFetchData(json)))
 	}
@@ -41,7 +44,10 @@ export const requestDetails = (id) => {
 	} else {
 		return dispatch => {
 			dispatch(requestFetchDetails())
-			fetch (`https://demo.wp-api.org/wp-json/wp/v2/posts/${id}`)
+			const request = new Request(`https://demo.wp-api.org/wp-json/wp/v2/posts/${id}`, {
+				method: 'GET'
+			})
+			fetch (request)
 			.then ((response) => response.json())
 			.then(json => dispatch(receiveFetchDetails(json)))
 		}
